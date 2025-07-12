@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>25.7.12. 기후데이터 수업</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중학교 1학년 기후 데이터 분석 수업 지도안</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styles for the markdown citation */
+        .citation-marker {
+            vertical-align: super;
+            font-size: 0.75em;
+            color: #4A5568; /* gray-700 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 p-4 sm:p-8">
+    <div class="container mx-auto max-w-4xl bg-white rounded-xl shadow-lg p-6 sm:p-10 my-8">
+
+        <!-- Header Section -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-700 mb-4 rounded-lg p-2">중학교 1학년 대상 기후 데이터 분석 수업 지도안 (3차시)</h1>
+            <p class="text-lg sm:text-xl text-gray-600 mb-6">안녕하세요, 과학 교사 제미나이입니다!</p>
+            <p class="text-md sm:text-lg text-gray-700 leading-relaxed">
+                최근 폭염이나 갑작스러운 폭우처럼 이상한 날씨를 경험한 적이 많죠?<sup class="citation-marker">1</sup>
+                10년 뒤 우리나라의 날씨는 어떻게 변해있을까요?<sup class="citation-marker">1</sup>
+                이 수업에서는 우리가 직접 <strong class="text-blue-600">'기후 데이터 탐정'</strong>이 되어 과거와 현재의 데이터를 통해 미래의 날씨를 살짝 엿보는 재미있는 탐구 활동을 해볼 거예요. 복잡한 과학이 아니라, 간단한 방법으로 데이터와 친해지는 시간이니 즐겁게 참여해 주세요!
+            </p>
+            <p class="text-sm text-gray-500 mt-4">
+                이 지도안은 다운로드 가능한 마크다운(.md) 파일 형식으로 작성되었습니다.
+            </p>
+            <button id="copyMarkdownBtn" class="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                마크다운 내용 복사하기
+            </button>
+            <div id="copyMessage" class="mt-2 text-sm text-green-600 hidden">복사되었습니다!</div>
+        </header>
+
+        <hr class="border-t-2 border-blue-200 my-10">
+
+        <!-- Objectives Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-6 flex items-center">
+                <span class="mr-3">🎯</span> 수업 목표
+            </h2>
+            <ul class="list-disc list-inside space-y-3 text-lg text-gray-700">
+                <li><strong class="text-blue-500">날씨</strong>와 <strong class="text-blue-500">기후</strong>의 차이점을 설명할 수 있다.</li>
+                <li>공공 데이터를 활용하여 우리나라의 기후 변화 데이터를 수집하고 그래프로 표현할 수 있다.</li>
+                <li>데이터의 경향성을 파악하여 10년 후의 기후를 예측해 보고, 기후 변화가 우리 생활에 미칠 영향을 상상하여 표현할 수 있다.<sup class="citation-marker">1</sup></li>
+            </ul>
+        </section>
+
+        <hr class="border-t-2 border-blue-200 my-10">
+
+        <!-- Class 1 Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-6 flex items-center cursor-pointer toggle-section" data-target="class1-content">
+                <span class="mr-3">🔬</span> 1차시: 우리는 기후 탐정! 🕵️‍♀️
+                <span class="ml-auto text-blue-400 text-2xl" id="toggle-icon-class1">+</span>
+            </h2>
+            <div id="class1-content" class="hidden overflow-hidden transition-all duration-500 ease-in-out">
+                <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">파인만식 설명으로 개념 잡기</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    여러분, 어제 점심에 뭐 먹었는지 기억나요? 그건 <strong class="text-blue-500">'날씨'</strong>와 같아요. 매일매일 바뀌는 단기적인 정보죠. 그럼 여러분이 보통 여름엔 반팔을 입고 겨울엔 두꺼운 외투를 입는다는 사실은 어떨까요? 이게 바로 <strong class="text-blue-500">'기후'</strong>랍니다. 오랜 기간 동안의 평균적인 날씨 패턴, 즉 옷장 속에 어떤 종류의 옷이 있는가와 같아요. 우리는 미래를 예측하기 위해 과거의 사진첩(기후 데이터)을 넘겨보며 어떤 사진(날씨)이 찍힐지 추리해 볼 거예요!
+                </p>
+
+                <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">활동 내용</h3>
+                <ol class="list-decimal list-inside space-y-4 text-lg text-gray-700">
+                    <li>
+                        <strong class="text-blue-500">생각 열기 (5분)</strong>
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-base">
+                            <li>최근 경험했던 이상한 날씨(폭염, 폭우, 따뜻한 겨울 등)에 대해 자유롭게 이야기 나누기.</li>
+                            <li>왜 이런 현상이 나타나는지 궁금증 유발하기.<sup class="citation-marker">1</sup></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="text-blue-500">핵심 개념 배우기 (10분)</strong>
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-base">
+                            <li>날씨와 기후의 차이점 설명 (위 파인만식 설명 활용).</li>
+                            <li>과거 데이터를 분석하면 미래를 예측하는 데 도움이 되는 이유 토의하기.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="text-blue-500">데이터 수집 실습 (25분)</strong>
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-base">
+                            <li><strong class="font-medium">탐정 도구:</strong> 기상청 기상자료개방포털 사이트</li>
+                            <li><strong class="font-medium">미션:</strong> 내가 태어난 달의 지난 10년간 평균 기온 데이터 찾아보기.<sup class="citation-marker">1</sup>
+                                <ul class="list-circle list-inside ml-6 mt-1 text-sm">
+                                    <li>예: 8월에 태어났다면, 2015년~2024년의 8월 평균 기온 찾기.</li>
+                                </ul>
+                            </li>
+                            <li>찾은 데이터를 학습지에 간단히 기록하기.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="text-blue-500">정리 및 예고 (5분)</strong>
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-base">
+                            <li>데이터를 숫자로만 보니 어떤 변화가 있는지 한눈에 보이나요? 다음 시간에는 이 숫자들을 그림으로 바꿔서 누가 봐도 쉽게 알 수 있도록 만들어 볼 거예요!</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <hr class="border-t-2 border-blue-200 my-10">
+
+        <!-- Class 2 Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-6 flex items-center cursor-pointer toggle-section" data-target="class2-content">
+                <span class="mr-3">📊</span> 2차시: 데이터, 그림으로 말해요!
+                <span class="ml-auto text-blue-400 text-2xl" id="toggle-icon-class2">+</span>
+            </h2>
+            <div id="class2-content" class="hidden overflow-hidden transition-all duration-500 ease-in-out">
+                <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">파인만식 설명으로 개념 잡기</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    숫자 10개를 쭉 늘어놓고 설명하는 것보다, 그 숫자들을 모아 '점점 높아지는 계단' 그림 하나를 보여주는 게 훨씬 이해하기 쉽지 않을까요? <strong class="text-blue-500">그래프</strong>가 바로 그런 역할을 해요. 데이터라는 복잡한 이야기를 한 장의 그림으로 요약해 주는 마법 같은 도구죠. 위로 쭉 뻗는 선은 "점점 더워지고 있어!"라고 소리치는 것과 같답니다.
+                </p>
+
+                <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">활동 내용</h3>
+                <ol class="list-decimal list-inside space-y-4 text-lg text-gray-700">
+                    <li>
+                        <strong class="text-blue-500">지난 시간 복습 (5분)</strong>
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-base">
+                            <li>기후와 날씨의 차이, 데이터 수집 방법 간단히 복습.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="text-blue-500">그래프 실습 (25분)</strong>
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-base">
+                            <li><strong class="font-medium">탐정 도구:</strong> 구글 스프레드시트 또는 미리 준비된 그래프 용지</li>
+                            <li><strong class="font-medium">미션:</strong> 1차시에 수집한 '나의 탄생월 10년치 평균 기온' 데이터를 꺾은선그래프로 그리기.
+                                <ul class="list-circle list-inside ml-6 mt-1 text-sm">
+                                    <li>x축: 연도 (2015년 ~ 2024년)</li>
+                                    <li>y축: 평균 기온</li>
+                                </ul>
+                            </li>
+                            <li>그래프의 제목 붙이기 (예: 2015-2024년 서울 8월 평균 기온 변화)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="text-blue-500">경향성 파악하기 (10분)</strong>
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-base">
+                            <li><strong class="font-medium">탐정의 눈으로 분석:</strong> 내가 그린 그래프의 선이 전체적으로 어디를 향하고 있나요? (위, 아래, 그대로)</li>
+                            <li>그래프의 점들을 가장 잘 대표할 수 있는 직선(추세선)을 자를 대고 그려보기.</li>
+                            <li>이 추세선이 무엇을 의미하는지 한 문장으로 학습지에 작성하기. (예: 지난 10년간 8월의 평균 기온은 꾸준히 높아지는 경향을 보인다.)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="text-blue-500">정리 및 예고 (5분)</strong>
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-base">
+                            <li>이제 우리는 데이터가 말하는 경향을 그림으로 파악할 수 있게 됐어요. 그렇다면 이 선을 쭉 이어서 미래를 그려볼 수도 있겠죠? 다음 시간에는 직접 미래 기후 보고서를 만들어 보겠습니다!</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <hr class="border-t-2 border-blue-200 my-10">
+
+        <!-- Class 3 Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-6 flex items-center cursor-pointer toggle-section" data-target="class3-content">
+                <span class="mr-3">📝</span> 3차시: 내가 만드는 미래 날씨 보고서
+                <span class="ml-auto text-blue-400 text-2xl" id="toggle-icon-class3">+</span>
+            </h2>
+            <div id="class3-content" class="hidden overflow-hidden transition-all duration-500 ease-in-out">
+                <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">파인만식 설명으로 개념 잡기</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    자, 탐정 여러분! 단서(데이터)를 모으고, 패턴(그래프와 추세선)도 찾아냈어요. 이제 범인을 지목하듯, 미래를 예측해 볼 시간이에요. 영화의 전반부만 보고 결말을 추리하는 것과 같아요. 100% 정확하진 않겠지만, 우리는 데이터라는 확실한 근거를 가지고 아주 그럴듯한 추리를 할 수 있답니다. "이대로라면, 10년 뒤 여름은 지금보다 훨씬 덥겠는걸?" 하고 말이죠.
+                </p>
+
+                <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">활동 내용</h3>
+                <ol class="list-decimal list-inside space-y-4 text-lg text-gray-700">
+                    <li>
+                        <strong class="text-blue-500">미래 예측하기 (15분)</strong>
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-base">
+                            <li><strong class="font-medium">탐정의 예측:</strong> 2차시에 그린 그래프의 추세선을 10년 뒤(2035년)까지 연장해서 그려보기.</li>
+                            <li>2035년 나의 탄생월 평균 기온은 약 몇 도가 될지 예측하여 기록하기.<sup class="citation-marker">1</sup></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="text-blue-500">미래 상상하고 표현하기 (20분)</strong>
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-base">
+                            <li><strong class="font-medium">미션:</strong> '10년 뒤 나에게서 온 엽서' 꾸미기</li>
+                            <li>예측한 기후 변화가 우리 생활(음식, 옷, 집, 직업, 건강 등)을 어떻게 바꿀지 상상하여 그림이나 글로 표현하기.<sup class="citation-marker">1</sup>
+                                <ul class="list-circle list-inside ml-6 mt-1 text-sm">
+                                    <li>예시: "2035년의 여름은 너무 더워서, 학교에서 '폭염 방학'을 한단다! 길거리에서는 열대 과일인 망고를 팔고 있어."</li>
+                                </ul>
+                            </li>
+                            <li>이 활동은 기후 변화와 사회적 변화를 연결하는 탐구 활동에서 아이디어를 얻었습니다.<sup class="citation-marker">1</sup></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="text-blue-500">발표 및 공유 (10분)</strong>
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-base">
+                            <li>자신이 만든 '미래 날씨 보고서(엽서)'를 친구들에게 소개하기.</li>
+                            <li>친구들의 다양한 예측과 상상을 들어보며 생각 넓히기.</li>
+                            <li>우리의 예측은 간단한 모델이지만, 실제 기상학자들은 슈퍼컴퓨터와 인공지능(AI)을 이용해 훨씬 정교하게 미래를 예측한다는 사실을 알려주며 수업 마무리.<sup class="citation-marker">1, 3</sup></li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <hr class="border-t-2 border-blue-200 my-10">
+
+        <!-- Footer Section -->
+        <footer class="text-center text-gray-600 text-md sm:text-lg leading-relaxed">
+            <p>
+                이 수업을 통해 학생들이 기후 변화를 막연한 두려움이 아닌, 데이터를 통해 탐구하고 미래를 대비할 수 있는 과학적 문제로 인식하는 계기가 되기를 바랍니다.<sup class="citation-marker">3</sup>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Link -->
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+/* style.css */
+
+/* Custom styles can be added here if needed, beyond Tailwind CSS. */
+/* For example, if you want specific font sizes or line heights not easily covered by Tailwind */
+
+/* Ensure smooth transitions for the toggle sections */
+#class1-content, #class2-content, #class3-content {
+    max-height: 0; /* Start hidden */
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+#class1-content.active, #class2-content.active, #class3-content.active {
+    max-height: 1000px; /* Adjust as needed for content height */
+    opacity: 1;
+}
+
+/* Style for the toggle icon */
+.toggle-section .toggle-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggle-section.active .toggle-icon {
+    transform: rotate(45deg); /* Rotate to form an 'X' or similar for active state */
+}
+
+/* Basic responsive adjustments if not fully covered by Tailwind */
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem; /* Smaller padding on small screens */
+    }
+    h1 {
+        font-size: 2.5rem; /* Adjust font size for smaller screens */
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    .text-lg {
+        font-size: 1rem;
+    }
+}
